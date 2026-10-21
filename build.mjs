@@ -2,7 +2,7 @@
 import fs from 'fs';
 import { createHash } from 'crypto';
 import { execFileSync } from 'child_process';
-const skip = new Set(['api', 'node_modules', 'public', 'package.json', 'package-lock.json', 'vercel.json', 'build.mjs', 'vr-patch.json', 'y27-main.html']);
+const skip = new Set(['api', 'lib', 'db', 'scripts', 'README.md', 'node_modules', 'public', 'package.json', 'package-lock.json', 'vercel.json', 'build.mjs', 'vr-patch.json', 'y27-main.html']);
 fs.rmSync('public', { recursive: true, force: true });
 fs.mkdirSync('public');
 for (const n of fs.readdirSync('.')) {
@@ -121,8 +121,8 @@ const CODES = [
   '21132407193622152404194024092202301510091406281228182205280130253216121510113031111310052511302911091208101511101010110622141001100222080310032230233003302212143001302132130304321532110802330717131718',
   '081608132408241330063002301430083010300927022403241024122707241127062417240627152714071723082301'
 ].join('');
-try {
-  const buf = Buffer.from(await (await fetch(GEO_URL)).arrayBuffer());
+if (!fs.existsSync('public/data/vr-geo.json') || process.env.REBUILD_MAP_BOUNDARIES === '1') try {
+  const buf = Buffer.from(await (await fetch(GEO_URL, { signal: AbortSignal.timeout(30000) })).arrayBuffer());
   const sha = createHash('sha1').update(buf).digest('hex');
   if (sha !== GEO_SHA1) throw new Error('boundary file changed: ' + sha);
   const g = JSON.parse(buf.toString('utf8'));

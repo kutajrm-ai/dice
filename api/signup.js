@@ -1,4 +1,4 @@
-import { put } from '@vercel/blob';
+import { getDb } from '../lib/db.js';
 
 const json = (data, status = 200) =>
   new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } });
@@ -21,9 +21,8 @@ export async function POST(request) {
   };
   const id = `${createdAt.replace(/[:.]/g, '-')}-${crypto.randomUUID().slice(0, 8)}`;
   try {
-    await put(`signups/${createdAt.slice(0, 7)}/${id}.json`, JSON.stringify(record), {
-      access: 'private', contentType: 'application/json', addRandomSuffix: false,
-    });
+    await getDb()`INSERT INTO signups(source_path, data, created_at)
+      VALUES (${`signups/${createdAt.slice(0, 7)}/${id}.json`}, ${JSON.stringify(record)}::jsonb, ${createdAt}::timestamptz)`;
   } catch (err) {
     console.error('signup store failed', err);
     return json({ error: 'We could not save your details just now. Please try again.' }, 500);

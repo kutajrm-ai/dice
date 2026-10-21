@@ -1,4 +1,4 @@
-import { put } from '@vercel/blob';
+import { getDb } from '../lib/db.js';
 
 // POST /api/vr-ingest?f=summary.json   header x-key: VR_UPLOAD_KEY   body: the JSON file
 const ok = /^(summary|geo|st-\d\d)\.json$/;
@@ -11,6 +11,7 @@ export async function POST(request) {
   if (!ok.test(f)) return json({ error: 'Unexpected file name: ' + f }, 400);
   const body = await request.text();
   try { JSON.parse(body); } catch { return json({ error: f + ' is not valid JSON.' }, 400); }
-  await put('vr/' + f, body, { access: 'private', addRandomSuffix: false, allowOverwrite: true, contentType: 'application/json' });
+  await getDb()`INSERT INTO data_documents(path, kind, body) VALUES (${'vr/' + f}, 'voter_register', ${body}::jsonb)
+    ON CONFLICT(path) DO UPDATE SET body=excluded.body, updated_at=now()`;
   return json({ ok: true, f, bytes: body.length });
 }

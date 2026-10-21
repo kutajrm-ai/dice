@@ -1,4 +1,4 @@
-import { list, get } from '@vercel/blob';
+import { getDb } from '../lib/db.js';
 
 // GET /api/export?key=EXPORT_KEY  -> CSV of every signup
 export async function GET(request) {
@@ -7,18 +7,7 @@ export async function GET(request) {
   if (!secret || key.length !== secret.length || key !== secret) {
     return new Response('Unauthorized', { status: 401 });
   }
-  const rows = [];
-  let cursor;
-  do {
-    const page = await list({ prefix: 'signups/', cursor, limit: 1000 });
-    for (const b of page.blobs) {
-      const r = await get(b.pathname, { access: 'private' });
-      if (r && r.statusCode === 200) {
-        try { rows.push(JSON.parse(await new Response(r.stream).text())); } catch {}
-      }
-    }
-    cursor = page.cursor;
-  } while (cursor);
+  const rows = (await getDb()`SELECT data FROM signups ORDER BY created_at`).map(row => row.data);
   rows.sort((a, b) => String(a.createdAt).localeCompare(String(b.createdAt)));
   const esc = (v) => { const s = v == null ? '' : String(v); return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; };
   const head = ['createdAt', 'name', 'email', 'consent', 'page', 'country'];
