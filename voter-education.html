@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voter Education — DICE</title>
+<meta name="description" content="Plain answers on registering, getting your PVC, voting on election day and what happens after — from INEC’s FAQ booklet and the Regulations and Guidelines for the Conduct of Elections, 2026.">
+<meta property="og:title" content="Voter Education — DICE">
+<meta property="og:description" content="Plain answers on registering, getting your PVC, voting on election day and what happens after — from INEC’s FAQ booklet and the Regulations and Guidelines for the Conduct of Elections, 2026.">
+<meta property="og:image" content="/logo.webp">
+<meta name="theme-color" content="#0B4A2A">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&amp;family=Public+Sans:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="s3352fa">
+<div class="se17166">
+<span><span class="sfc4d94"></span><strong><span id="days">107</span> days</strong> to the Presidential &amp; National Assembly elections · 16 January 2027</span>
+<a class="scaeddb" href="/#vote-ready">Are you Vote Ready? →</a>
+</div>
+</div>
+<header class="sa7f6c6">
+<div class="s856064">
+<a class="sa16470" href="/" aria-label="DICE home"><img class="s99ea85" src="/logo.webp" alt="DICE — Development Initiative for Citizens Enlightenment"></a>
+<nav aria-label="Primary" class="mainnav s25f875">
+<a class="s97ad12" href="/#about">About</a>
+<a class="s97ad12" href="/#programmes">Programmes</a>
+<div class="dd sc451fd">
+<button class="saf4bd3" type="button" id="dd-btn" aria-expanded="false" aria-haspopup="true" aria-controls="dd-panel" >Election Data <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+<div class="s1dde97" id="dd-panel" hidden>
+<a href="/results" class="dd-item s56dce0"><span class="s83e448">Results analysis</span><span class="s048fef">2023 presidential breakdown</span></a><a href="/registration" class="dd-item s56dce0"><span class="s83e448">Voter registration</span><span class="s048fef">Register size &amp; CVR 2025–26</span></a><a href="/accreditation" class="dd-item s56dce0"><span class="s83e448">Accreditation stats</span><span class="s048fef">BVAS accreditation rates</span></a><a href="/candidates" class="dd-item s56dce0"><span class="s83e448">2027 Candidates</span><span class="s048fef">Search Senate &amp; House candidates</span></a>
+</div>
+</div>
+<a class="s97ad12" href="/#observation">Observation</a>
+<a class="s97ad12" href="/#vote-ready">Vote Ready</a>
+<a class="s0f82a6" href="/#get-involved">Get involved</a>
+</nav>
+</div>
+</header>
+<main>
+<style>
+.ve-wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.ve-card{background:#FFFFFF;border:1px solid #E4E6DF;border-radius:20px;padding:clamp(20px,3vw,32px)}
+.ve-chip{font:inherit;font-weight:700;font-size:14px;min-height:40px;padding:0 16px;border-radius:999px;cursor:pointer;border:1.5px solid #C9D6CC;background:#FFFFFF;color:#0B4A2A;display:inline-flex;align-items:center;gap:8px}
+.ve-chip:hover{border-color:#13693A}
+.ve-chip[aria-pressed="true"]{background:#13693A;border-color:#13693A;color:#FFFFFF}
+.ve-btn{font:inherit;font-weight:700;font-size:15px;min-height:48px;padding:0 22px;border-radius:999px;cursor:pointer;border:1.5px solid #13693A;background:#13693A;color:#FFFFFF}
+.ve-btn.ghost{background:#FFFFFF;color:#13693A}
+.ve-btn:disabled{opacity:.4;cursor:default}
+.ve-btn:focus-visible,.ve-chip:focus-visible,.ve-q:focus-visible,.ve-opt:focus-visible,.ve-yn:focus-visible,.ve-cat:focus-visible,.ve-wi:focus-visible{outline:3px solid #F2B91C;outline-offset:2px}
+.ve-cat{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:6px;padding:18px;border-radius:16px;border:1.5px solid #E4E6DF;background:#FFFFFF;min-height:132px}
+.ve-cat:hover{border-color:#3A9B3F}
+.ve-cat[aria-pressed="true"]{border-color:#13693A;background:#E6F2E3}
+.ve-q{all:unset;box-sizing:border-box;cursor:pointer;display:flex;gap:14px;align-items:flex-start;justify-content:space-between;width:100%;padding:16px 4px;font-weight:700;font-size:16px;line-height:1.4;color:#111813}
+.ve-q:hover{color:#13693A}
+.ve-q svg{flex-shrink:0;transition:transform .15s}
+.ve-q[aria-expanded="true"] svg{transform:rotate(45deg)}
+.ve-ans{padding:0 4px 18px;font-size:15px;color:#2A332D;display:flex;flex-direction:column;gap:8px}
+.ve-ans p{margin:0}
+.ve-ans ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+.ve-opt{all:unset;box-sizing:border-box;cursor:pointer;display:flex;gap:12px;align-items:center;padding:14px 16px;border-radius:12px;border:1.5px solid #E4E6DF;background:#FFFFFF;font-size:15px;font-weight:600;width:100%}
+.ve-opt:hover:not([disabled]){border-color:#13693A}
+.ve-yn{font:inherit;font-weight:700;font-size:14px;min-height:40px;min-width:64px;padding:0 14px;border-radius:999px;cursor:pointer;border:1.5px solid #C9D6CC;background:#FFFFFF;color:#0B4A2A}
+.ve-yn[aria-pressed="true"].y{background:#13693A;border-color:#13693A;color:#FFFFFF}
+.ve-yn[aria-pressed="true"].n{background:#8A6205;border-color:#8A6205;color:#FFFFFF}
+.ve-wi{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:8px;padding:18px;border-radius:16px;border:1px solid #E4E6DF;background:#FFFFFF}
+.ve-wi:hover{border-color:#3A9B3F}
+.ve-dot{all:unset;cursor:pointer;width:34px;height:34px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-family:Archivo,sans-serif;font-weight:700;font-size:14px;border:1.5px solid #C9D6CC;background:#FFFFFF;color:#0B4A2A}
+.ve-dot[aria-current="step"]{background:#13693A;border-color:#13693A;color:#FFFFFF}
+.ve-dot.done{background:#E6F2E3;border-color:#3A9B3F}
+.ve-dot:focus-visible{outline:3px solid #F2B91C;outline-offset:2px}
+mark.ve-hl{background:#FCE9A8;color:inherit;border-radius:3px;padding:0 1px}
+.ve-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px;align-items:start}
+.ve-faq{display:block}
+@media (max-width:560px){.ve-cats{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}.ve-cat{min-height:0;padding:12px;gap:4px}.ve-cat .ve-ci{width:32px!important;height:32px!important}.ve-cat .ve-ct{font-size:15px!important}}
+</style><section style="background: #FBF7EA; border-bottom: 1px solid #EFE4C2; position: relative; overflow: hidden">
+<div aria-hidden="true" style="position: absolute; right: -120px; top: -120px; width: 380px; height: 380px; border-radius: 50%; border: 48px solid rgba(242,185,28,0.22)"></div>
+<div style="max-width: 1180px; margin: 0 auto; padding: 56px 24px 48px; display: flex; flex-direction: column; gap: 18px; position: relative">
+<nav aria-label="Breadcrumb" style="font-size: 14px; color: #55605A"><a href="/" style="color: #55605A">Home</a> <span aria-hidden="true">/</span> <span style="color: #111813; font-weight: 600">Voter education</span></nav>
+<h1 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(36px, 5vw, 60px); line-height: 1.05; letter-spacing: -0.03em; color: #0B4A2A">Voter Education</h1>
+<p style="margin: 0; font-size: 19px; color: #55605A; max-width: 720px">Plain answers on registering, getting your PVC, voting on election day and what happens after — from INEC’s FAQ booklet and the Regulations and Guidelines for the Conduct of Elections, 2026.</p>
+<form role="search" onsubmit="return false" style="display: flex; flex-direction: column; gap: 10px; max-width: 720px; margin-top: 6px">
+<label for="ve-search" style="font-size: 14px; font-weight: 700; color: #0B4A2A">Ask a question</label>
+<div style="position: relative">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#55605A" stroke-width="2.2" stroke-linecap="round" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%)"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+<input id="ve-search" type="search" autocomplete="off" placeholder="e.g. lost PVC, transfer, BVAS, phone" style="font: inherit; font-size: 17px; width: 100%; min-height: 56px; padding: 0 16px 0 46px; border: 1.5px solid #C9D6CC; border-radius: 14px; background: #FFFFFF; color: #111813">
+</div>
+<div id="ve-quick" style="display: flex; flex-wrap: wrap; gap: 8px"></div>
+</form>
+<div style="display: flex; flex-wrap: wrap; gap: 10px 28px; font-size: 15px; margin-top: 4px">
+<span><strong id="ve-n-q" style="font-family: 'Archivo', sans-serif; font-size: 22px; color: #0B4A2A">266</strong> questions answered</span>
+<span><strong id="ve-n-c" style="font-family: 'Archivo', sans-serif; font-size: 22px; color: #0B4A2A">10</strong> topics</span>
+<span><strong style="font-family: 'Archivo', sans-serif; font-size: 22px; color: #8A6205">2026</strong> regulations included</span>
+</div>
+</div>
+</section><section id="start" style="background: #F6F7F4; scroll-margin-top: 80px"><div style="max-width: 1180px; margin: 0 auto; padding: 40px 24px; display: flex; flex-direction: column; gap: 28px"><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr)); gap: 14px">
+<a href="#ready" style="display: flex; flex-direction: column; gap: 6px; padding: 20px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E4E6DF; border-top: 4px solid #13693A; text-decoration: none; color: #111813"><span style="font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 18px">Am I ready to vote? →</span><span style="font-size: 14px; color: #55605A">Five quick checks.</span></a>
+<a href="#walkthrough" style="display: flex; flex-direction: column; gap: 6px; padding: 20px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E4E6DF; border-top: 4px solid #F2B91C; text-decoration: none; color: #111813"><span style="font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 18px">Election day, step by step →</span><span style="font-size: 14px; color: #55605A">From the queue to the count.</span></a>
+<a href="#whatif" style="display: flex; flex-direction: column; gap: 6px; padding: 20px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E4E6DF; border-top: 4px solid #3A9B3F; text-decoration: none; color: #111813"><span style="font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 18px">What if…? →</span><span style="font-size: 14px; color: #55605A">Problems on the day, solved.</span></a>
+<a href="#quiz" style="display: flex; flex-direction: column; gap: 6px; padding: 20px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E4E6DF; border-top: 4px solid #B07D06; text-decoration: none; color: #111813"><span style="font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 18px">Test yourself →</span><span style="font-size: 14px; color: #55605A">Eight quick questions.</span></a>
+<a href="#faq" style="display: flex; flex-direction: column; gap: 6px; padding: 20px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E4E6DF; border-top: 4px solid #0B4A2A; text-decoration: none; color: #111813"><span style="font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 18px">All questions by topic →</span><span style="font-size: 14px; color: #55605A">266 answers in 10 topics.</span></a>
+</div></div></section><section id="ready" style="background: #FFFFFF; scroll-margin-top: 80px"><div style="max-width: 1180px; margin: 0 auto; padding: 72px 24px; display: flex; flex-direction: column; gap: 28px"><div style="display: flex; flex-direction: column; gap: 12px; max-width: 760px"><div style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #13693A"><span style="width: 22px; height: 4px; border-radius: 2px; background: #F2B91C; display: inline-block"></span>Check yourself</div><h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; letter-spacing: -0.025em; color: #0B4A2A">Am I ready to vote?</h2><p style="margin: 0; font-size: 17px; color: #55605A">Answer five questions. These are the conditions in clause 5 of the 2026 Regulations.</p></div><div id="ve-ready" class="ve-two"></div></div></section><section id="walkthrough" style="background: #F6F7F4; scroll-margin-top: 80px"><div style="max-width: 1180px; margin: 0 auto; padding: 72px 24px; display: flex; flex-direction: column; gap: 28px"><div style="display: flex; flex-direction: column; gap: 12px; max-width: 760px"><div style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #B07D06"><span style="width: 22px; height: 4px; border-radius: 2px; background: #F2B91C; display: inline-block"></span>Election day</div><h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; letter-spacing: -0.025em; color: #0B4A2A">Election day, step by step</h2><p style="margin: 0; font-size: 17px; color: #55605A">What happens at your polling unit, in order. Use the buttons or the numbers to move through the steps.</p></div><div id="ve-walk"></div></div></section><section id="whatif" style="background: #FFFFFF; scroll-margin-top: 80px"><div style="max-width: 1180px; margin: 0 auto; padding: 72px 24px; display: flex; flex-direction: column; gap: 28px"><div style="display: flex; flex-direction: column; gap: 12px; max-width: 760px"><div style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #13693A"><span style="width: 22px; height: 4px; border-radius: 2px; background: #F2B91C; display: inline-block"></span>Problems on the day</div><h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; letter-spacing: -0.025em; color: #0B4A2A">What if…?</h2><p style="margin: 0; font-size: 17px; color: #55605A">Tap a situation to see what the 2026 Regulations say.</p></div><div id="ve-whatif" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 14px; align-items: start"></div><div id="ve-dos" class="ve-two"></div></div></section><section id="quiz" style="background: #FBF7EA; scroll-margin-top: 80px"><div style="max-width: 1180px; margin: 0 auto; padding: 72px 24px; display: flex; flex-direction: column; gap: 28px"><div style="display: flex; flex-direction: column; gap: 12px; max-width: 760px"><div style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #B07D06"><span style="width: 22px; height: 4px; border-radius: 2px; background: #F2B91C; display: inline-block"></span>Test yourself</div><h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; letter-spacing: -0.025em; color: #0B4A2A">How well do you know the rules?</h2><p style="margin: 0; font-size: 17px; color: #55605A">Eight questions. You get the answer and the reason straight away.</p></div><div id="ve-quiz" class="ve-card" style="max-width: 760px"></div></div></section><section id="faq" style="background: #F6F7F4; scroll-margin-top: 80px"><div style="max-width: 1180px; margin: 0 auto; padding: 72px 24px; display: flex; flex-direction: column; gap: 28px"><div style="display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; align-items: end"><div style="display: flex; flex-direction: column; gap: 12px; max-width: 760px"><div style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #13693A"><span style="width: 22px; height: 4px; border-radius: 2px; background: #F2B91C; display: inline-block"></span>All questions</div><h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; letter-spacing: -0.025em; color: #0B4A2A">Questions and answers by topic</h2><p style="margin: 0; font-size: 17px; color: #55605A">Pick a topic, or search. Tap a question to open the answer.</p></div></div><div id="ve-cats" class="ve-cats" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px"></div><div class="ve-faq"><div id="ve-listtop" style="display: flex; flex-direction: column; gap: 14px; min-width: 0; scroll-margin-top: 96px"><div style="display: flex; flex-wrap: wrap; gap: 8px 16px; justify-content: space-between; align-items: center"><p id="ve-count" aria-live="polite" style="margin: 0; font-weight: 700; font-size: 16px"></p><div style="display: flex; gap: 14px"><button type="button" id="ve-expand" style="font: inherit; font-weight: 700; font-size: 14px; background: transparent; color: #13693A; border: 0; padding: 8px 0; cursor: pointer; text-decoration: underline">Open all</button><button type="button" id="ve-clear" hidden style="font: inherit; font-weight: 700; font-size: 14px; background: transparent; color: #13693A; border: 0; padding: 8px 0; cursor: pointer; text-decoration: underline">Clear search</button></div></div><div id="ve-list" class="ve-card" style="padding: 4px clamp(16px, 2.4vw, 28px)"></div><button type="button" id="ve-more" hidden class="ve-btn" style="align-self: center">Show more</button></div></div></div></section><section id="glossary" style="background: #FFFFFF; scroll-margin-top: 80px"><div style="max-width: 1180px; margin: 0 auto; padding: 72px 24px; display: flex; flex-direction: column; gap: 28px"><div style="display: flex; flex-direction: column; gap: 12px; max-width: 760px"><div style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #13693A"><span style="width: 22px; height: 4px; border-radius: 2px; background: #F2B91C; display: inline-block"></span>Jargon buster</div><h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; letter-spacing: -0.025em; color: #0B4A2A">Election words and acronyms</h2><p style="margin: 0; font-size: 17px; color: #55605A">Filter the list to find a term.</p></div><input id="ve-gq" type="search" aria-label="Filter terms" placeholder="Filter, e.g. BVAS" style="font: inherit; font-size: 16px; max-width: 360px; min-height: 48px; padding: 0 14px; border: 1.5px solid #C9D6CC; border-radius: 10px; background: #FFFFFF; color: #111813"><dl id="ve-gloss" style="margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 10px"></dl></div></section><section id="help" style="background: #0B4A2A; color: #FFFFFF"><div style="max-width: 1180px; margin: 0 auto; padding: 72px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 32px 64px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 14px"><div style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #F2B91C"><span style="width: 22px; height: 4px; border-radius: 2px; background: #F2B91C; display: inline-block"></span>Get help</div><h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; letter-spacing: -0.025em">Still have a question? Ask INEC.</h2><p style="margin: 0; font-size: 16px; color: #CFE0D3">The INEC Citizens Contact Centre (ICCC) takes enquiries, complaints and suggestions. Report vote buying on the dedicated hotline.</p></div>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; border-top: 1px solid rgba(255,255,255,0.22)">
+<li style="display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.22)"><span style="color: #CFE0D3">Vote-buying hotline</span><a href="tel:09084444333" style="color: #F2B91C; font-weight: 700">0908 444 4333</a></li>
+<li style="display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.22)"><span style="color: #CFE0D3">INEC vanity number</span><a href="tel:070022554632" style="color: #FFFFFF; font-weight: 700">0700 2255 4632</a></li>
+<li style="display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.22)"><span style="color: #CFE0D3">Short code</span><span style="font-weight: 700">4632</span></li>
+<li style="display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.22)"><span style="color: #CFE0D3">Email</span><a href="mailto:iccc@inec.gov.ng" style="color: #FFFFFF; font-weight: 700">iccc@inec.gov.ng</a></li>
+<li style="display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.22)"><span style="color: #CFE0D3">Website</span><a href="https://www.inecnigeria.org" style="color: #FFFFFF; font-weight: 700">inecnigeria.org</a></li>
+<li style="display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.22)"><span style="color: #CFE0D3">Register, transfer or replace a PVC</span><a href="https://cvr.inecnigeria.org" style="color: #FFFFFF; font-weight: 700">cvr.inecnigeria.org</a></li>
+</ul></div></section><section style="background: #FFFFFF"><div style="max-width: 1180px; margin: 0 auto; padding: 32px 24px 56px"><p style="margin: 0; font-size: 13px; color: #55605A">Sources: INEC, Frequently Asked Questions on the Electoral Process (August 2022 edition, prepared under the Electoral Act 2022); INEC, Regulations and Guidelines for the Conduct of Elections, 2026. Answers are shown as written in the FAQ booklet, lightly cleaned for reading. Where the 2026 Regulations or the Electoral Act 2026 changed a rule, an update note appears under the answer; notes marked “as reported” come from published summaries of the Electoral Act 2026 — check the Act itself before relying on them. Section numbers in the booklet refer to the Electoral Act 2022. Contact details are from the booklet.</p></div></section>
+</main>
+<footer class="s12c831">
+<div class="s54b73b">
+<div class="s81712a">
+<img class="s76e87a" src="/logo.webp" alt="DICE logo">
+<span>Block COP 25B, Abuja International Trade Centre, Zone B11, Kaura District, Abuja, FCT</span>
+<span>[info@ email] · [phone]</span>
+</div>
+<div class="s3503ba"><span class="saf4348">Election data</span><a class="s77d52c" href="/results">Results analysis</a><a class="s77d52c" href="/registration">Voter registration</a><a class="s77d52c" href="/accreditation">Accreditation stats</a><a class="s77d52c" href="/candidates">2027 Candidates</a></div>
+<div class="s3503ba">
+<span>© 2026 DICE · CAC IT 8325179</span>
+<span>Non-partisan. Only INEC declares election results.</span>
+</div>
+</div>
+</footer>
+<script src="/app.js" defer></script>
+<script src="/voter-education.js" defer></script>
+</body>
+</html>

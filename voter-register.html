@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voter Register — DICE Election Data</title>
+<meta name="description" content="Find your polling unit, see how the register grew between the 2019 and 2023 general elections — by state, LGA, ward and polling unit — and who is on it by gender, disability and occupation.">
+<meta property="og:title" content="Voter Register — DICE Election Data">
+<meta property="og:description" content="Find your polling unit, see how the register grew between the 2019 and 2023 general elections — by state, LGA, ward and polling unit — and who is on it by gender, disability and occupation.">
+<meta property="og:image" content="/logo.webp">
+<meta name="theme-color" content="#0B4A2A">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&amp;family=Public+Sans:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="s3352fa">
+<div class="se17166">
+<span><span class="sfc4d94"></span><strong><span id="days">107</span> days</strong> to the Presidential &amp; National Assembly elections · 16 January 2027</span>
+<a class="scaeddb" href="/#vote-ready">Are you Vote Ready? →</a>
+</div>
+</div>
+<header class="sa7f6c6">
+<div class="s856064">
+<a class="sa16470" href="/" aria-label="DICE home"><img class="s99ea85" src="/logo.webp" alt="DICE — Development Initiative for Citizens Enlightenment"></a>
+<nav aria-label="Primary" class="mainnav s25f875">
+<a class="s97ad12" href="/#about">About</a>
+<a class="s97ad12" href="/#programmes">Programmes</a>
+<div class="dd sc451fd">
+<button class="saf4bd3" type="button" id="dd-btn" aria-expanded="false" aria-haspopup="true" aria-controls="dd-panel" >Election Data <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+<div class="s1dde97" id="dd-panel" hidden>
+<a href="/results" class="dd-item s56dce0"><span class="s83e448">Results analysis</span><span class="s048fef">2023 presidential breakdown</span></a><a href="/voter-register" class="dd-item s56dce0"><span class="s83e448">Voter Register</span><span class="s048fef">Polling units &amp; 2019–2023 growth</span></a><a href="/accreditation" class="dd-item s56dce0"><span class="s83e448">Accreditation stats</span><span class="s048fef">BVAS accreditation rates</span></a><a href="/candidates" class="dd-item s56dce0"><span class="s83e448">2027 Candidates</span><span class="s048fef">Search Senate &amp; House candidates</span></a>
+</div>
+</div>
+<a class="s97ad12" href="/#observation">Observation</a>
+<a class="s97ad12" href="/#vote-ready">Vote Ready</a>
+<a class="s0f82a6" href="/#get-involved">Get involved</a>
+</nav>
+</div>
+</header>
+<main>
+<style>
+.vr-card{background:#FFFFFF;border:1px solid #E4E6DF;border-radius:20px;padding:clamp(18px,2.6vw,28px)}
+.vr-chip{font:inherit;font-weight:700;font-size:14px;min-height:40px;padding:0 14px;border-radius:999px;cursor:pointer;border:1.5px solid #C9D6CC;background:#FFFFFF;color:#0B4A2A}
+.vr-chip:hover{border-color:#13693A}
+.vr-chip[aria-pressed="true"]{background:#13693A;border-color:#13693A;color:#FFFFFF}
+.vr-btn{font:inherit;font-weight:700;font-size:15px;min-height:46px;padding:0 20px;border-radius:999px;cursor:pointer;border:1.5px solid #13693A;background:#13693A;color:#FFFFFF;display:inline-flex;align-items:center;gap:8px}
+.vr-btn.ghost{background:#FFFFFF;color:#13693A}
+.vr-btn:disabled{opacity:.45;cursor:default}
+.vr-sel{font:inherit;font-size:15px;min-height:46px;padding:0 12px;border:1.5px solid #C9D6CC;border-radius:10px;background:#FFFFFF;color:#111813;width:100%}
+.vr-sel:disabled{background:#F3F4F0;color:#8A938C}
+.vr-lab{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:700;color:#55605A;min-width:0}
+.vr-grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:end}
+.vr-two{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:16px;align-items:start}
+.vr-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px;align-items:start}
+.vr-tbl{width:100%;border-collapse:collapse;font-size:14px}
+.vr-tbl th{text-align:left;font-size:12px;font-weight:700;color:#55605A;padding:10px 10px;border-bottom:1.5px solid #111813;white-space:nowrap;position:sticky;top:0;background:#FFFFFF;z-index:1}
+.vr-tbl th button{all:unset;cursor:pointer}
+.vr-tbl th button:focus-visible{outline:2px solid #F2B91C}
+.vr-tbl td{padding:9px 10px;border-bottom:1px solid #EEF0EA;vertical-align:top}
+.vr-tbl td.n,.vr-tbl th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.vr-tbl tr.click{cursor:pointer}
+.vr-tbl tr.click:hover td{background:#F4F8F2}
+.vr-scroll{overflow:auto;max-height:560px;border:1px solid #E4E6DF;border-radius:14px;background:#FFFFFF}
+.vr-tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.vr-map path.a{cursor:pointer;stroke:#FFFFFF;stroke-width:.7;vector-effect:non-scaling-stroke;transition:opacity .15s}
+.vr-map path.a:hover,.vr-map path.a:focus{stroke:#111813;stroke-width:1.6;outline:none}
+.vr-map path.sel{stroke:#111813;stroke-width:2.2}
+.vr-tip{position:fixed;pointer-events:none;background:#111813;color:#FFFFFF;font-size:13px;line-height:1.4;padding:8px 10px;border-radius:8px;z-index:60;max-width:260px;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.vr-bar{display:grid;grid-template-columns:minmax(80px,150px) minmax(40px,1fr) 92px;gap:10px;align-items:center;padding:4px 6px;margin:0 -6px;border-radius:8px;font-size:14px}
+.vr-wide .vr-bar{grid-template-columns:minmax(80px,150px) minmax(40px,1fr) 128px}
+.vr-bar.click{cursor:pointer}
+.vr-bar.click:hover{background:#F4F8F2}
+.vr-bar .t{display:block;height:14px;background:#EEF1EC;border-radius:0 4px 4px 0}
+.vr-bar .t span{display:block;height:100%;border-radius:0 4px 4px 0}
+.vr-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:10px}
+.vr-k{border:1px solid #E4E6DF;border-radius:14px;padding:14px 16px;background:#FFFFFF}
+.vr-k b{display:block;font-family:Archivo,sans-serif;font-size:clamp(20px,2vw,26px);line-height:1.1;margin-top:6px;color:#0B4A2A}
+.vr-k span{font-size:12px;font-weight:700;color:#55605A}
+.vr-k i{display:block;font-style:normal;font-size:12px;color:#55605A;margin-top:4px}
+.vr-modal{position:fixed;inset:0;background:rgba(11,26,18,.55);display:flex;align-items:center;justify-content:center;padding:16px;z-index:80}
+.vr-modal[hidden]{display:none}
+.vr-in{font:inherit;font-size:16px;min-height:46px;padding:0 12px;border:1.5px solid #C9D6CC;border-radius:10px;width:100%}
+.vr-nav a{font-weight:700;font-size:14px;color:#0B4A2A;text-decoration:none;padding:8px 14px;border-radius:999px;border:1.5px solid #C9D6CC;background:#FFFFFF;white-space:nowrap}
+.vr-nav a:hover{border-color:#13693A}
+@media (max-width:900px){.vr-two{grid-template-columns:1fr}.vr-grid4{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.vr-grid4{grid-template-columns:1fr}.vr-bar{grid-template-columns:minmax(70px,110px) minmax(30px,1fr) 78px}.vr-wide .vr-bar{grid-template-columns:minmax(70px,100px) minmax(30px,1fr) 112px}}
+</style><section style="background: #FFFFFF; border-bottom: 1px solid #E4E6DF">
+<div style="max-width: 1180px; margin: 0 auto; padding: 52px 24px 40px; display: flex; flex-direction: column; gap: 18px">
+<nav aria-label="Breadcrumb" style="font-size: 14px; color: #55605A"><a href="/#election-data" style="color: #55605A">Election data</a> <span aria-hidden="true">/</span> <span style="color: #111813; font-weight: 600">Voter Register</span></nav>
+<h1 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(36px, 5vw, 60px); line-height: 1.05; letter-spacing: -0.03em; color: #0B4A2A">Voter Register</h1>
+<p style="margin: 0; font-size: 19px; color: #55605A; max-width: 760px">Find your polling unit, see how the register grew between the 2019 and 2023 general elections — by state, LGA, ward and polling unit — and who is on it by gender, disability and occupation.</p>
+<div class="vr-kpis" style="margin-top: 6px">
+<div class="vr-k"><span>Registered voters, 2023</span><b style="color: #0B4A2A">93,469,008</b><i>+9,464,924 since 2019</i></div>
+<div class="vr-k"><span>Growth since 2019</span><b style="color: #13693A">+11.3%</b><i>2019: 84,004,084</i></div>
+<div class="vr-k"><span>Polling units, 2023</span><b style="color: #0B4A2A">176,846</b><i>56,874 new since 2019</i></div>
+<div class="vr-k"><span>Wards · LGAs</span><b style="color: #0B4A2A">8,809 · 774</b><i>37 states incl. FCT</i></div>
+<div class="vr-k"><span>Women on the register</span><b style="color: #8A6205">47.5%</b><i>44,414,846 women</i></div>
+</div>
+<nav class="vr-nav" aria-label="On this page" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px"><a href="#map">Map explorer</a><a href="#directory">Polling Unit Directory</a><a href="#analysis">Polling Unit Analysis</a><a href="#gender">Gender</a><a href="#pwd">PWD</a><a href="#occupation">Occupation</a><a href="#downloads">Downloads</a></nav>
+<p id="vr-status" role="status" style="margin: 0; font-size: 14px; color: #55605A">Loading the register data…</p>
+</div>
+</section><section id="map" style="background: #F6F7F4; scroll-margin-top: 84px"><div style="max-width: 1180px; margin: 0 auto; padding: 64px 24px; display: flex; flex-direction: column; gap: 24px"><div style="display: flex; flex-direction: column; gap: 10px; max-width: 780px"><div style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #13693A"><span style="width: 22px; height: 4px; border-radius: 2px; background: #F2B91C; display: inline-block"></span>Map explorer</div><h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; letter-spacing: -0.025em; color: #0B4A2A">Explore the register on the map</h2><p style="margin: 0; font-size: 17px; color: #55605A">Tap a state to see its LGAs. Tap an LGA to see its wards. Pick what the colours show.</p></div><div class="vr-card" style="display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-wrap: wrap; gap: 10px 20px; justify-content: space-between; align-items: center"><nav id="vr-crumb" aria-label="Map level" style="font-size: 15px; font-weight: 700"></nav><div id="vr-metrics" role="group" aria-label="Colour the map by" style="display: flex; flex-wrap: wrap; gap: 8px"></div></div>
+<div class="vr-two"><div style="display: flex; flex-direction: column; gap: 10px; min-width: 0"><div id="vr-mapbox" class="vr-map" style="position: relative; width: 100%; aspect-ratio: 1.12; background: #F6F7F4; border-radius: 14px; overflow: hidden"></div><div id="vr-legend" style="display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; font-size: 12px; color: #55605A"></div></div>
+<div id="vr-side" style="display: flex; flex-direction: column; gap: 14px; min-width: 0"></div></div>
+</div></div></section><section id="directory" style="background: #FFFFFF; scroll-margin-top: 84px"><div style="max-width: 1180px; margin: 0 auto; padding: 64px 24px; display: flex; flex-direction: column; gap: 24px"><div style="display: flex; flex-direction: column; gap: 10px; max-width: 780px"><div style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #13693A"><span style="width: 22px; height: 4px; border-radius: 2px; background: #F2B91C; display: inline-block"></span>Find your polling unit</div><h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; letter-spacing: -0.025em; color: #0B4A2A">Polling Unit Directory</h2><p style="margin: 0; font-size: 17px; color: #55605A">Choose your state, LGA and ward to list every polling unit, with its code and the number of registered voters for the 2023 general election.</p></div><div class="vr-card" style="display: flex; flex-direction: column; gap: 16px"><div class="vr-grid4">
+<label class="vr-lab">State<select id="dir-s" class="vr-sel"></select></label>
+<label class="vr-lab">LGA<select id="dir-l" class="vr-sel" disabled></select></label>
+<label class="vr-lab">Ward (Registration Area)<select id="dir-w" class="vr-sel" disabled></select></label>
+<label class="vr-lab">Search polling units<input id="dir-q" type="search" class="vr-sel" autocomplete="off" placeholder="Name or code, e.g. primary school"></label>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px 16px; justify-content: space-between; align-items: center"><p id="dir-count" aria-live="polite" style="margin: 0; font-weight: 700"></p><button type="button" class="vr-btn ghost" data-dl="dir">Download this list (CSV)</button></div>
+<div id="dir-out"></div></div></div></section><section id="analysis" style="background: #F6F7F4; scroll-margin-top: 84px"><div style="max-width: 1180px; margin: 0 auto; padding: 64px 24px; display: flex; flex-direction: column; gap: 24px"><div style="display: flex; flex-direction: column; gap: 10px; max-width: 780px"><div style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #13693A"><span style="width: 22px; height: 4px; border-radius: 2px; background: #F2B91C; display: inline-block"></span>2019 → 2023</div><h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; letter-spacing: -0.025em; color: #0B4A2A">Polling Unit Analysis</h2><p style="margin: 0; font-size: 17px; color: #55605A">How registered voters and polling units changed between the 2019 and 2023 general elections. Drill from state to LGA, ward and polling unit, or search. Polling units that did not exist in 2019 are marked “New polling unit”.</p></div><div class="vr-card" style="display: flex; flex-direction: column; gap: 16px"><div class="vr-grid4">
+<label class="vr-lab">State<select id="an-s" class="vr-sel"></select></label>
+<label class="vr-lab">LGA<select id="an-l" class="vr-sel" disabled></select></label>
+<label class="vr-lab">Ward (Registration Area)<select id="an-w" class="vr-sel" disabled></select></label>
+<label class="vr-lab">Search<input id="an-q" type="search" class="vr-sel" autocomplete="off" placeholder="State, LGA, ward or polling unit"></label>
+</div>
+<div id="an-kpis" class="vr-kpis"></div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px 16px; justify-content: space-between; align-items: center"><p id="an-count" aria-live="polite" style="margin: 0; font-weight: 700"></p><button type="button" class="vr-btn ghost" data-dl="an">Download this table (CSV)</button></div>
+<div id="an-out"></div>
+<p style="margin: 0; font-size: 13px; color: #55605A">Polling units are matched on their INEC code. In 2023 INEC converted voting points into new polling units; existing units kept their codes, so the 56,874 units with no 2019 code are the new ones. Where a unit kept its code but its name changed markedly, it is marked “Renamed”. 2019 totals for FCT include 216,123 voters at voting-point settlements that were not polling units.</p></div></div></section><section id="gender" style="background: #FFFFFF; scroll-margin-top: 84px"><div style="max-width: 1180px; margin: 0 auto; padding: 64px 24px; display: flex; flex-direction: column; gap: 24px"><div style="display: flex; flex-direction: column; gap: 10px; max-width: 780px"><div style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #B07D06"><span style="width: 22px; height: 4px; border-radius: 2px; background: #F2B91C; display: inline-block"></span>2023 register</div><h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; letter-spacing: -0.025em; color: #0B4A2A">Gender</h2><p style="margin: 0; font-size: 17px; color: #55605A">Women and men on the 2023 register, by state. Tap a bar to open the state on the map.</p></div><div id="gen-out" class="vr-cols"></div></div></section><section id="pwd" style="background: #F6F7F4; scroll-margin-top: 84px"><div style="max-width: 1180px; margin: 0 auto; padding: 64px 24px; display: flex; flex-direction: column; gap: 24px"><div style="display: flex; flex-direction: column; gap: 10px; max-width: 780px"><div style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #B07D06"><span style="width: 22px; height: 4px; border-radius: 2px; background: #F2B91C; display: inline-block"></span>2023 register</div><h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; letter-spacing: -0.025em; color: #0B4A2A">Persons with disabilities (PWD)</h2><p style="margin: 0; font-size: 17px; color: #55605A">Registered voters who declared a disability, by type and state.</p></div><div id="pwd-out" class="vr-cols"></div></div></section><section id="occupation" style="background: #FFFFFF; scroll-margin-top: 84px"><div style="max-width: 1180px; margin: 0 auto; padding: 64px 24px; display: flex; flex-direction: column; gap: 24px"><div style="display: flex; flex-direction: column; gap: 10px; max-width: 780px"><div style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #B07D06"><span style="width: 22px; height: 4px; border-radius: 2px; background: #F2B91C; display: inline-block"></span>2023 register</div><h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; letter-spacing: -0.025em; color: #0B4A2A">Occupation</h2><p style="margin: 0; font-size: 17px; color: #55605A">The occupations voters gave when they registered. Pick a state to compare it with Nigeria.</p></div><div id="occ-out" class="vr-cols"></div></div></section><section id="downloads" style="background: #FBF7EA; scroll-margin-top: 84px"><div style="max-width: 1180px; margin: 0 auto; padding: 64px 24px; display: flex; flex-direction: column; gap: 24px"><div style="display: flex; flex-direction: column; gap: 10px; max-width: 780px"><div style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #13693A"><span style="width: 22px; height: 4px; border-radius: 2px; background: #F2B91C; display: inline-block"></span>Free downloads</div><h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; letter-spacing: -0.025em; color: #0B4A2A">Download the data</h2><p style="margin: 0; font-size: 17px; color: #55605A">Viewing is free for everyone. To download, register once with your name and email — it is free.</p></div><div id="dl-out" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 12px"></div><p style="margin: 0; font-size: 14px; color: #55605A">Looking for the register size and the 2025–26 CVR? <a href="/registration" style="color: #13693A; font-weight: 700">See the voter registration analysis →</a></p></div></section><section style="background: #FFFFFF"><div style="max-width: 1180px; margin: 0 auto; padding: 28px 24px 52px"><p style="margin: 0; font-size: 13px; color: #55605A">Sources: INEC final polling unit voter registration figures for the 2023 General Election (176,846 polling units, 93,469,008 registered voters); INEC registered voters for the 2019 General Elections (119,973 polling units plus FCT voting-point settlements, 84,004,084 registered voters); INEC 2023 register by gender, occupation and disability, by state. Growth = (2023 − 2019) ÷ 2019. Boundaries: geoBoundaries (CC BY 4.0), LGAs matched to INEC names by DICE; boundaries are approximate and for illustration. Ward boundaries are not available, so wards are shown as lists.</p></div></section><div id="vr-modal" class="vr-modal" hidden role="dialog" aria-modal="true" aria-labelledby="vr-m-h"><form id="vr-form" class="vr-card" style="max-width: 460px; width: 100%; display: flex; flex-direction: column; gap: 14px; border-top: 4px solid #F2B91C">
+<h2 id="vr-m-h" style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 24px; color: #0B4A2A">Register to download — free</h2>
+<p style="margin: 0; font-size: 15px; color: #55605A">Tell us who you are once and every download on this site is unlocked.</p>
+<label class="vr-lab">Full name<input id="vr-name" class="vr-in" autocomplete="name" required></label>
+<label class="vr-lab">Email<input id="vr-email" class="vr-in" type="email" autocomplete="email" required></label>
+<label style="display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: #55605A"><input id="vr-consent" type="checkbox" style="width: 20px; height: 20px; margin: 2px 0 0; accent-color: #13693A">Send me DICE election updates (optional)</label>
+<input id="vr-hp" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+<p id="vr-m-st" role="status" style="margin: 0; font-size: 14px; min-height: 20px; color: #55605A"></p>
+<div style="display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap"><button type="button" class="vr-btn ghost" id="vr-m-x">Cancel</button><button type="submit" class="vr-btn" id="vr-m-go">Register &amp; download</button></div>
+</form></div><div id="vr-tip" class="vr-tip" hidden></div>
+</main>
+<footer class="s12c831">
+<div class="s54b73b">
+<div class="s81712a">
+<img class="s76e87a" src="/logo.webp" alt="DICE logo">
+<span>Block COP 25B, Abuja International Trade Centre, Zone B11, Kaura District, Abuja, FCT</span>
+<span>[info@ email] · [phone]</span>
+</div>
+<div class="s3503ba"><span class="saf4348">Election data</span><a class="s77d52c" href="/results">Results analysis</a><a class="s77d52c" href="/voter-register">Voter Register</a><a class="s77d52c" href="/accreditation">Accreditation stats</a><a class="s77d52c" href="/candidates">2027 Candidates</a></div>
+<div class="s3503ba">
+<span>© 2026 DICE · CAC IT 8325179</span>
+<span>Non-partisan. Only INEC declares election results.</span>
+</div>
+</div>
+</footer>
+<script src="/app.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js" defer></script>
+<script src="/voter-register.js" defer></script>
+</body>
+</html>

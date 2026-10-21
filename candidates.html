@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2027 Candidates — DICE Election Data</title>
+<meta name="description" content="Every candidate on INEC’s final list for the Presidential, Senate and House of Representatives elections of 16 January 2027. Search by name, or narrow by state, seat and party.">
+<meta property="og:title" content="2027 Candidates — DICE Election Data">
+<meta property="og:description" content="Every candidate on INEC’s final list for the Presidential, Senate and House of Representatives elections of 16 January 2027. Search by name, or narrow by state, seat and party.">
+<meta property="og:image" content="/logo.webp">
+<meta name="theme-color" content="#0B4A2A">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&amp;family=Public+Sans:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="s3352fa">
+<div class="se17166">
+<span><span class="sfc4d94"></span><strong><span id="days">107</span> days</strong> to the Presidential &amp; National Assembly elections · 16 January 2027</span>
+<a class="scaeddb" href="/#vote-ready">Are you Vote Ready? →</a>
+</div>
+</div>
+<header class="sa7f6c6">
+<div class="s856064">
+<a class="sa16470" href="/" aria-label="DICE home"><img class="s99ea85" src="/logo.webp" alt="DICE — Development Initiative for Citizens Enlightenment"></a>
+<nav aria-label="Primary" class="mainnav s25f875">
+<a class="s97ad12" href="/#about">About</a>
+<a class="s97ad12" href="/#programmes">Programmes</a>
+<div class="dd sc451fd">
+<button class="saf4bd3" type="button" id="dd-btn" aria-expanded="false" aria-haspopup="true" aria-controls="dd-panel" >Election Data <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+<div class="s1dde97" id="dd-panel" hidden>
+<a href="/results" class="dd-item s56dce0"><span class="s83e448">Results analysis</span><span class="s048fef">2023 presidential breakdown</span></a><a href="/registration" class="dd-item s56dce0"><span class="s83e448">Voter registration</span><span class="s048fef">Register size &amp; CVR 2025–26</span></a><a href="/accreditation" class="dd-item s56dce0"><span class="s83e448">Accreditation stats</span><span class="s048fef">BVAS accreditation rates</span></a><a href="/candidates" class="dd-item s56dce0"><span class="s83e448">2027 Candidates</span><span class="s048fef">Search Senate &amp; House candidates</span></a>
+</div>
+</div>
+<a class="s97ad12" href="/#observation">Observation</a>
+<a class="s97ad12" href="/#vote-ready">Vote Ready</a>
+<a class="s0f82a6" href="/#get-involved">Get involved</a>
+</nav>
+</div>
+</header>
+<main>
+<section class="s72b62a">
+<div class="s0906bd">
+<nav class="s3d0292" aria-label="Breadcrumb"><a class="s77d52c" href="/#election-data">Election data</a> <span aria-hidden="true">/</span> <span class="sf67c44">2027 Candidates</span></nav>
+<h1 class="sd86888">2027 Candidates</h1>
+<p class="s6d864c">Every candidate on INEC’s final list for the Presidential, Senate and House of Representatives elections of 16 January 2027. Search by name, or narrow by state, seat and party.</p>
+<div class="s9477b9">
+<span><strong class="s0d7885">18</strong> presidential tickets</span>
+<span><strong class="s0d7885">4,863</strong> National Assembly candidates</span>
+<span><strong class="s0d7885">1,303</strong> for 109 Senate seats</span>
+<span><strong class="s0d7885">3,560</strong> for 360 House seats</span>
+<span><strong class="s5c1dfa">9.6%</strong> women</span>
+</div>
+</div>
+</section>
+<section class="s33768b">
+<div class="s58c37b" id="cand-app">
+<p class="s8d83b7" id="c-loading">Loading the candidate list…</p>
+<div class="s343387" id="c-ready" hidden>
+<form class="s4c473d" role="search" onsubmit="return false">
+<div class="s14113d" role="group" aria-label="Chamber"><button class="s8ec873" type="button" data-ch="-1" aria-pressed="true">All</button><button class="s551f42" type="button" data-ch="2" aria-pressed="false">Presidential</button><button class="s551f42" type="button" data-ch="0" aria-pressed="false">Senate</button><button class="s551f42" type="button" data-ch="1" aria-pressed="false">House of Reps</button></div>
+<div class="cand-filters s6e2250">
+<label class="s3503ba"><span class="sbb5647">Search candidate name</span><input class="s4ac1f2" id="f-q" type="search" autocomplete="off" placeholder="e.g. Kalu, Amina, Bello"></label>
+<label class="s3503ba"><span class="sbb5647">State</span><select class="s4ac1f2" id="f-state"></select></label>
+<label class="s3503ba"><span class="sbb5647">Seat</span><select class="s4ac1f2" id="f-seat"></select></label>
+<label class="s3503ba"><span class="sbb5647">Party</span><select class="s4ac1f2" id="f-party"></select></label>
+<label class="s3503ba"><span class="sbb5647">Gender</span><select class="s4ac1f2" id="f-gender"><option value="-1">All</option><option value="1">Women</option><option value="0">Men</option></select></label>
+</div>
+<div class="s677688"><span class="s3dd9b4">Showing: <strong class="s9f61ab" id="c-scope">Nigeria</strong></span><button class="s8171e9" type="button" id="f-reset">Clear all filters</button></div>
+</form>
+<div class="s37d2b6" id="c-pres"></div>
+<div class="s5286e3" id="c-kpis"></div>
+<div class="see02ed" id="c-charts"></div>
+<div class="sa4c684" id="c-results">
+<div class="s01df9a">
+<div class="s685cf0"><div class="s689c60"><span class="s37036b"></span>Candidate list</div><p class="sbdb8d4" id="c-count" aria-live="polite"></p></div>
+<button class="sed0ba0" type="button" id="c-csv">Download this list (CSV)</button>
+</div>
+<div class="s37d2b6" id="c-list"></div>
+<button class="saaff61" type="button" id="c-more" hidden>Show more seats</button>
+</div>
+</div>
+<p class="s03071e">Source: INEC Final List of Candidates, Presidential and National Assembly Elections, January 2027 — Presidential, Senatorial District and House of Representatives lists, signed by the Secretary to the Commission. Names and ages are shown as submitted. Qualification levels are DICE’s grouping of the qualifications text in the INEC list; see the INEC list for the full text. One age printed as 947 is shown as not stated. Party logos are as published by INEC at inecnigeria.org/parties.</p>
+</div>
+</section>
+</main>
+<footer class="s12c831">
+<div class="s54b73b">
+<div class="s81712a">
+<img class="s76e87a" src="/logo.webp" alt="DICE logo">
+<span>Block COP 25B, Abuja International Trade Centre, Zone B11, Kaura District, Abuja, FCT</span>
+<span>[info@ email] · [phone]</span>
+</div>
+<div class="s3503ba"><span class="saf4348">Election data</span><a class="s77d52c" href="/results">Results analysis</a><a class="s77d52c" href="/registration">Voter registration</a><a class="s77d52c" href="/accreditation">Accreditation stats</a><a class="s77d52c" href="/candidates">2027 Candidates</a></div>
+<div class="s3503ba">
+<span>© 2026 DICE · CAC IT 8325179</span>
+<span>Non-partisan. Only INEC declares election results.</span>
+</div>
+</div>
+</footer>
+<script src="/app.js" defer></script>
+<script src="/candidates.js" defer></script>
+</body>
+</html>

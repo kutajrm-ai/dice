@@ -1,0 +1,27 @@
+{
+  "id": "/",
+  "name": "DICE Election Data",
+  "short_name": "DICE",
+  "description": "Non-partisan Nigerian election data: 2027 elections, candidates, constituencies, the voter register, results and voter education.",
+  "lang": "en-NG",
+  "dir": "ltr",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "any",
+  "background_color": "#FFFFFF",
+  "theme_color": "#0B4A2A",
+  "categories": ["news", "education", "government"],
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "2027 Elections", "short_name": "2027", "url": "/2027?source=pwa", "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }] },
+    { "name": "2027 Candidates", "short_name": "Candidates", "url": "/candidates?source=pwa", "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Find your polling unit", "short_name": "Voter Register", "url": "/voter-register?source=pwa#directory", "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Election Results", "short_name": "Results", "url": "/results?source=pwa", "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }] }
+  ]
+}

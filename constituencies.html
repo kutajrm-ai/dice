@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Electoral Constituency — DICE Election Data</title>
+<meta name="description" content="Nigeria’s 109 senatorial districts, 360 federal constituencies and 993 state constituencies on the map: registered voters, names, codes and the LGAs that make up each constituency.">
+<meta property="og:title" content="Electoral Constituency — DICE Election Data">
+<meta property="og:description" content="Nigeria’s 109 senatorial districts, 360 federal constituencies and 993 state constituencies on the map: registered voters, names, codes and the LGAs that make up each constituency.">
+<meta property="og:image" content="/logo.webp">
+<meta name="theme-color" content="#0B4A2A">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&amp;family=Public+Sans:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="s3352fa">
+<div class="se17166">
+<span><span class="sfc4d94"></span><strong><span id="days">107</span> days</strong> to the Presidential &amp; National Assembly elections · 16 January 2027</span>
+<a class="scaeddb" href="/#vote-ready">Are you Vote Ready? →</a>
+</div>
+</div>
+<header class="sa7f6c6">
+<div class="s856064">
+<a class="sa16470" href="/" aria-label="DICE home"><img class="s99ea85" src="/logo.webp" alt="DICE — Development Initiative for Citizens Enlightenment"></a>
+<nav aria-label="Primary" class="mainnav s25f875">
+<a class="s97ad12" href="/#about">About</a>
+<a class="s97ad12" href="/#programmes">Programmes</a>
+<div class="dd sc451fd">
+<button class="saf4bd3" type="button" id="dd-btn" aria-expanded="false" aria-haspopup="true" aria-controls="dd-panel" >Election Data <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+<div class="s1dde97" id="dd-panel" hidden>
+<a href="/results" class="dd-item s56dce0"><span class="s83e448">Results analysis</span><span class="s048fef">2023 presidential breakdown</span></a><a href="/voter-register" class="dd-item s56dce0"><span class="s83e448">Voter Register</span><span class="s048fef">Polling units &amp; 2019–2023 growth</span></a><a href="/accreditation" class="dd-item s56dce0"><span class="s83e448">Accreditation stats</span><span class="s048fef">BVAS accreditation rates</span></a><a href="/candidates" class="dd-item s56dce0"><span class="s83e448">2027 Candidates</span><span class="s048fef">Search Senate &amp; House candidates</span></a>
+</div>
+</div>
+<a class="s97ad12" href="/#observation">Observation</a>
+<a class="s97ad12" href="/#vote-ready">Vote Ready</a>
+<a class="s0f82a6" href="/#get-involved">Get involved</a>
+</nav>
+</div>
+</header>
+<main>
+<style>
+.vr-card{background:#FFFFFF;border:1px solid #E4E6DF;border-radius:20px;padding:clamp(18px,2.6vw,28px)}
+.vr-chip{font:inherit;font-weight:700;font-size:14px;min-height:40px;padding:0 14px;border-radius:999px;cursor:pointer;border:1.5px solid #C9D6CC;background:#FFFFFF;color:#0B4A2A}
+.vr-chip:hover{border-color:#13693A}
+.vr-chip[aria-pressed="true"]{background:#13693A;border-color:#13693A;color:#FFFFFF}
+.vr-btn{font:inherit;font-weight:700;font-size:15px;min-height:46px;padding:0 20px;border-radius:999px;cursor:pointer;border:1.5px solid #13693A;background:#13693A;color:#FFFFFF;display:inline-flex;align-items:center;gap:8px}
+.vr-btn.ghost{background:#FFFFFF;color:#13693A}
+.vr-btn:disabled{opacity:.45;cursor:default}
+.vr-sel{font:inherit;font-size:15px;min-height:46px;padding:0 12px;border:1.5px solid #C9D6CC;border-radius:10px;background:#FFFFFF;color:#111813;width:100%}
+.vr-sel:disabled{background:#F3F4F0;color:#8A938C}
+.vr-lab{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:700;color:#55605A;min-width:0}
+.vr-grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:end}
+.vr-two{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:16px;align-items:start}
+.vr-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px;align-items:start}
+.vr-tbl{width:100%;border-collapse:collapse;font-size:14px}
+.vr-tbl th{text-align:left;font-size:12px;font-weight:700;color:#55605A;padding:10px 10px;border-bottom:1.5px solid #111813;white-space:nowrap;position:sticky;top:0;background:#FFFFFF;z-index:1}
+.vr-tbl th button{all:unset;cursor:pointer}
+.vr-tbl th button:focus-visible{outline:2px solid #F2B91C}
+.vr-tbl td{padding:9px 10px;border-bottom:1px solid #EEF0EA;vertical-align:top}
+.vr-tbl td.n,.vr-tbl th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.vr-tbl tr.click{cursor:pointer}
+.vr-tbl tr.click:hover td{background:#F4F8F2}
+.vr-scroll{overflow:auto;max-height:560px;border:1px solid #E4E6DF;border-radius:14px;background:#FFFFFF}
+.vr-tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.vr-map path.a{cursor:pointer;stroke:#FFFFFF;stroke-width:.7;vector-effect:non-scaling-stroke;transition:opacity .15s}
+.vr-map path.a:hover,.vr-map path.a:focus{stroke:#111813;stroke-width:1.6;outline:none}
+.vr-map path.sel{stroke:#111813;stroke-width:2.2}
+.vr-tip{position:fixed;pointer-events:none;background:#111813;color:#FFFFFF;font-size:13px;line-height:1.4;padding:8px 10px;border-radius:8px;z-index:60;max-width:260px;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.vr-bar{display:grid;grid-template-columns:minmax(80px,150px) minmax(40px,1fr) 92px;gap:10px;align-items:center;padding:4px 6px;margin:0 -6px;border-radius:8px;font-size:14px}
+.vr-wide .vr-bar{grid-template-columns:minmax(80px,150px) minmax(40px,1fr) 128px}
+.vr-bar.click{cursor:pointer}
+.vr-bar.click:hover{background:#F4F8F2}
+.vr-bar .t{display:block;height:14px;background:#EEF1EC;border-radius:0 4px 4px 0}
+.vr-bar .t span{display:block;height:100%;border-radius:0 4px 4px 0}
+.vr-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:10px}
+.vr-k{border:1px solid #E4E6DF;border-radius:14px;padding:14px 16px;background:#FFFFFF}
+.vr-k b{display:block;font-family:Archivo,sans-serif;font-size:clamp(20px,2vw,26px);line-height:1.1;margin-top:6px;color:#0B4A2A}
+.vr-k span{font-size:12px;font-weight:700;color:#55605A}
+.vr-k i{display:block;font-style:normal;font-size:12px;color:#55605A;margin-top:4px}
+.vr-modal{position:fixed;inset:0;background:rgba(11,26,18,.55);display:flex;align-items:center;justify-content:center;padding:16px;z-index:80}
+.vr-modal[hidden]{display:none}
+.vr-in{font:inherit;font-size:16px;min-height:46px;padding:0 12px;border:1.5px solid #C9D6CC;border-radius:10px;width:100%}
+.vr-nav a{font-weight:700;font-size:14px;color:#0B4A2A;text-decoration:none;padding:8px 14px;border-radius:999px;border:1.5px solid #C9D6CC;background:#FFFFFF;white-space:nowrap}
+.vr-nav a:hover{border-color:#13693A}
+@media (max-width:900px){.vr-two{grid-template-columns:1fr}.vr-grid4{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.vr-grid4{grid-template-columns:1fr}.vr-bar{grid-template-columns:minmax(70px,110px) minmax(30px,1fr) 78px}.vr-wide .vr-bar{grid-template-columns:minmax(70px,100px) minmax(30px,1fr) 112px}}
+</style><section style="background: #FFFFFF; border-bottom: 1px solid #E4E6DF">
+<div style="max-width: 1180px; margin: 0 auto; padding: 52px 24px 40px; display: flex; flex-direction: column; gap: 18px">
+<nav aria-label="Breadcrumb" style="font-size: 14px; color: #55605A"><a href="/#election-data" style="color: #55605A">Election data</a> <span aria-hidden="true">/</span> <span style="color: #111813; font-weight: 600">Electoral Constituency</span></nav>
+<h1 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(36px, 5vw, 60px); line-height: 1.05; letter-spacing: -0.03em; color: #0B4A2A">Electoral Constituency</h1>
+<p style="margin: 0; font-size: 19px; color: #55605A; max-width: 780px">Every senatorial district, federal constituency and state constituency in Nigeria — where it is, how many registered voters it has, and which LGAs make it up.</p>
+<div id="ec-hero" class="vr-kpis" style="margin-top: 6px"></div>
+<nav class="vr-nav" aria-label="On this page" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px"><a href="#explorer">Constituency map</a><a href="#directory">Find a constituency</a><a href="#states">State by state</a><a href="#downloads">Downloads</a><a href="#notes">About the data</a></nav>
+<p id="ec-status" role="status" style="margin: 0; font-size: 14px; color: #55605A">Loading the constituencies…</p>
+</div>
+</section><section id="explorer" style="background: #F6F7F4; scroll-margin-top: 84px"><div style="max-width: 1180px; margin: 0 auto; padding: 64px 24px; display: flex; flex-direction: column; gap: 24px"><div style="display: flex; flex-direction: column; gap: 10px; max-width: 780px"><div style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #13693A"><span style="width: 22px; height: 4px; border-radius: 2px; background: #F2B91C; display: inline-block"></span>Constituency map</div><h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; letter-spacing: -0.025em; color: #0B4A2A">Explore constituencies on the map</h2><p style="margin: 0; font-size: 17px; color: #55605A">Choose senatorial districts, federal constituencies or state constituencies. Tap a state to see its constituencies with their names, then tap a constituency to see the LGAs that make it up.</p></div><div class="vr-card" style="display: flex; flex-direction: column; gap: 16px">
+<div role="group" aria-label="Constituency type" id="ec-levels" style="display: flex; flex-wrap: wrap; gap: 8px"></div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px 20px; justify-content: space-between; align-items: center"><nav id="ec-crumb" aria-label="Map level" style="font-size: 15px; font-weight: 700"></nav><div id="ec-modes" role="group" aria-label="Colour the map by" style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center"></div></div>
+<div class="vr-two"><div style="display: flex; flex-direction: column; gap: 10px; min-width: 0"><div id="ec-mapbox" class="vr-map" style="position: relative; width: 100%; aspect-ratio: 1.12; background: #F6F7F4; border-radius: 14px; overflow: hidden"></div><div id="ec-legend" style="display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 13px; color: #55605A; align-items: center"></div></div>
+<div id="ec-side" style="display: flex; flex-direction: column; gap: 14px; min-width: 0"></div></div>
+</div></div></section><section id="directory" style="background: #FFFFFF; scroll-margin-top: 84px"><div style="max-width: 1180px; margin: 0 auto; padding: 64px 24px; display: flex; flex-direction: column; gap: 24px"><div style="display: flex; flex-direction: column; gap: 10px; max-width: 780px"><div style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #13693A"><span style="width: 22px; height: 4px; border-radius: 2px; background: #F2B91C; display: inline-block"></span>Directory</div><h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; letter-spacing: -0.025em; color: #0B4A2A">Find a constituency</h2><p style="margin: 0; font-size: 17px; color: #55605A">Search by constituency, LGA or state. Sort by any column, and tap a row to see it on the map.</p></div><div class="vr-grid4">
+<label class="vr-lab">Type<select id="dr-t" class="vr-sel"></select></label>
+<label class="vr-lab">State<select id="dr-s" class="vr-sel"></select></label>
+<label class="vr-lab" style="grid-column: span 2">Search<input id="dr-q" type="search" class="vr-sel" autocomplete="off" placeholder="Constituency, LGA or code"></label>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px 16px; justify-content: space-between; align-items: center"><p id="dr-count" aria-live="polite" style="margin: 0; font-weight: 700"></p><button type="button" class="vr-btn ghost" data-dl="dr">Download this list (CSV)</button></div>
+<div id="dr-out"></div></div></section><section id="states" style="background: #F6F7F4; scroll-margin-top: 84px"><div style="max-width: 1180px; margin: 0 auto; padding: 64px 24px; display: flex; flex-direction: column; gap: 24px"><div style="display: flex; flex-direction: column; gap: 10px; max-width: 780px"><div style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #13693A"><span style="width: 22px; height: 4px; border-radius: 2px; background: #F2B91C; display: inline-block"></span>State by state</div><h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; letter-spacing: -0.025em; color: #0B4A2A">Constituencies in each state</h2><p style="margin: 0; font-size: 17px; color: #55605A">How many senatorial districts, federal and state constituencies each state has, and how evenly registered voters are spread across its federal constituencies.</p></div><div style="display: flex; justify-content: flex-end"><button type="button" class="vr-btn ghost" data-dl="st">Download this table (CSV)</button></div>
+<div id="st-out"></div></div></section><section id="downloads" style="background: #FFFFFF; scroll-margin-top: 84px"><div style="max-width: 1180px; margin: 0 auto; padding: 64px 24px; display: flex; flex-direction: column; gap: 24px"><div style="display: flex; flex-direction: column; gap: 10px; max-width: 780px"><div style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #13693A"><span style="width: 22px; height: 4px; border-radius: 2px; background: #F2B91C; display: inline-block"></span>Downloads</div><h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; letter-spacing: -0.025em; color: #0B4A2A">Download the data</h2><p style="margin: 0; font-size: 17px; color: #55605A">Free to view; downloads need a one-time free registration.</p></div><div class="vr-cols" style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr))"><div class="vr-card" style="display: flex; flex-direction: column; gap: 10px"><h3 style="margin: 0; font-family: Archivo, sans-serif; font-size: 18px">Senatorial districts</h3><p style="margin: 0; font-size: 14px; color: #55605A">All 109 districts: code, name, state, registered voters, and the LGAs and federal constituencies in each.</p><button type="button" class="vr-btn" data-dl="sd" style="align-self: flex-start">Download CSV</button></div><div class="vr-card" style="display: flex; flex-direction: column; gap: 10px"><h3 style="margin: 0; font-family: Archivo, sans-serif; font-size: 18px">Federal constituencies</h3><p style="margin: 0; font-size: 14px; color: #55605A">All 360 constituencies: code, name, state, registered voters, senatorial district and LGAs.</p><button type="button" class="vr-btn" data-dl="fc" style="align-self: flex-start">Download CSV</button></div><div class="vr-card" style="display: flex; flex-direction: column; gap: 10px"><h3 style="margin: 0; font-family: Archivo, sans-serif; font-size: 18px">State constituencies</h3><p style="margin: 0; font-size: 14px; color: #55605A">All 993 constituencies: code, name, state, registered voters, and their LGA, federal constituency and senatorial district.</p><button type="button" class="vr-btn" data-dl="sc" style="align-self: flex-start">Download CSV</button></div><div class="vr-card" style="display: flex; flex-direction: column; gap: 10px"><h3 style="margin: 0; font-family: Archivo, sans-serif; font-size: 18px">LGA lookup</h3><p style="margin: 0; font-size: 14px; color: #55605A">All 774 LGAs with the senatorial district, federal constituency and state constituencies each belongs to.</p><button type="button" class="vr-btn" data-dl="lga" style="align-self: flex-start">Download CSV</button></div></div></div></section><section id="notes" style="background: #F6F7F4; scroll-margin-top: 84px"><div style="max-width: 1180px; margin: 0 auto; padding: 64px 24px; display: flex; flex-direction: column; gap: 24px"><div style="display: flex; flex-direction: column; gap: 10px; max-width: 780px"><div style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #13693A"><span style="width: 22px; height: 4px; border-radius: 2px; background: #F2B91C; display: inline-block"></span>About the data</div><h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; letter-spacing: -0.025em; color: #0B4A2A">How these figures were put together</h2><p style="margin: 0; font-size: 17px; color: #55605A"></p></div><div class="vr-card" style="display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: #111813; line-height: 1.55">
+<p style="margin: 0">Constituency names, codes and registered-voter totals are from INEC’s constituency totals (the register used for the 2023 general elections: 93,469,008 voters). The LGAs that make up each constituency follow INEC’s delimitation and were checked against the registered voters of each LGA: all 350 federal constituencies that cover whole LGAs and 107 of the 109 senatorial districts add up exactly.</p>
+<p style="margin: 0">State constituencies are drawn from wards, so many share an LGA. The map shows them through the LGA (or LGAs) they sit in; tap an LGA to see the state constituencies inside it. In Lagos (Lagos Island, Mushin, Oshodi/Isolo, Surulere) and Rivers (Port Harcourt) one LGA is split into two federal constituencies, so the map shows both on the same LGA.</p>
+<p style="margin: 0">* Ekiti Central and Ekiti South senatorial districts differ by 5,375 voters from the sum of their LGAs. In Delta, the INEC totals for the Ethiope East and Ethiope West state constituencies match the opposite LGA. The FCT has no state constituencies; it has six area councils.</p>
+<p style="margin: 0">Non-partisan. Boundaries: geoBoundaries (CC BY 4.0). Only INEC delimits constituencies.</p>
+</div></div></section><div id="vr-modal" class="vr-modal" hidden role="dialog" aria-modal="true" aria-labelledby="vr-m-h"><form id="vr-form" class="vr-card" style="max-width: 460px; width: 100%; display: flex; flex-direction: column; gap: 14px; border-top: 4px solid #F2B91C">
+<h2 id="vr-m-h" style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 24px; color: #0B4A2A">Register to download — free</h2>
+<p style="margin: 0; font-size: 15px; color: #55605A">Tell us who you are once and every download on this site is unlocked.</p>
+<label class="vr-lab">Full name<input id="vr-name" class="vr-in" autocomplete="name" required></label>
+<label class="vr-lab">Email<input id="vr-email" class="vr-in" type="email" autocomplete="email" required></label>
+<label style="display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: #55605A"><input id="vr-consent" type="checkbox" style="width: 20px; height: 20px; margin: 2px 0 0; accent-color: #13693A">Send me DICE election updates (optional)</label>
+<input id="vr-hp" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+<p id="vr-m-st" role="status" style="margin: 0; font-size: 14px; min-height: 20px; color: #55605A"></p>
+<div style="display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap"><button type="button" class="vr-btn ghost" id="vr-m-x">Cancel</button><button type="submit" class="vr-btn" id="vr-m-go">Register &amp; download</button></div>
+</form></div><div id="vr-tip" class="vr-tip" hidden></div>
+</main>
+<footer class="s12c831">
+<div class="s54b73b">
+<div class="s81712a">
+<img class="s76e87a" src="/logo.webp" alt="DICE logo">
+<span>Block COP 25B, Abuja International Trade Centre, Zone B11, Kaura District, Abuja, FCT</span>
+<span>[info@ email] · [phone]</span>
+</div>
+<div class="s3503ba"><span class="saf4348">Election data</span><a class="s77d52c" href="/results">Results analysis</a><a class="s77d52c" href="/voter-register">Voter Register</a><a class="s77d52c" href="/accreditation">Accreditation stats</a><a class="s77d52c" href="/candidates">2027 Candidates</a></div>
+<div class="s3503ba">
+<span>© 2026 DICE · CAC IT 8325179</span>
+<span>Non-partisan. Only INEC declares election results.</span>
+</div>
+</div>
+</footer>
+<script src="/app.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js" defer></script>
+<script src="/constituencies.js" defer></script>
+</body>
+</html>

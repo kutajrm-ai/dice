@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Voter Register data upload — DICE</title><link rel="icon" type="image/png" href="/favicon.png">
+<style>
+:root{--g9:#0B4A2A;--g7:#13693A;--mut:#55605A;--line:#E4E6DF;--bg:#F6F7F4}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#111813;font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:640px;margin:0 auto;padding:40px 16px}
+.card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--g7);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:16px}
+h1{margin:0;font-size:26px;color:var(--g9)}p{margin:0;color:var(--mut)}
+label{display:flex;flex-direction:column;gap:6px;font-weight:600}
+input{font:inherit;padding:10px 12px;border:1.5px solid #C9D6CC;border-radius:10px;background:#fff}
+button{font:inherit;font-weight:700;background:var(--g7);color:#fff;border:0;border-radius:999px;padding:12px 22px;cursor:pointer;align-self:flex-start}
+button:disabled{opacity:.6;cursor:default}
+ol{margin:0;padding-left:20px;color:var(--mut)}
+#log{font:13px/1.6 ui-monospace,Menlo,monospace;background:#F1F3EE;border-radius:10px;padding:12px;max-height:320px;overflow:auto;white-space:pre-wrap;margin:0}
+.bar{height:10px;background:#E6F2E3;border-radius:6px;overflow:hidden}.bar span{display:block;height:100%;width:0;background:var(--g7);transition:width .2s}
+</style></head><body><main><div class="card">
+<h1>Upload Voter Register data</h1>
+<p>One-time step for the DICE team. This page sends the 39 data files for the Voter Register page to the site’s storage.</p>
+<ol><li>Open the <b>dice-voter-register-data</b> folder on your Mac.</li><li>Enter the upload key you were given.</li><li>Select all 39 <code>.json</code> files (Cmd&nbsp;+&nbsp;A in the file picker) and press Upload.</li></ol>
+<label>Upload key<input id="k" type="password" autocomplete="off"></label>
+<label>Data files<input id="f" type="file" accept=".json,application/json" multiple></label>
+<button id="go" type="button">Upload</button>
+<div class="bar" aria-hidden="true"><span id="pb"></span></div>
+<pre id="log" aria-live="polite">Waiting for files…</pre>
+</div></main>
+<script>
+var log=document.getElementById('log'),pb=document.getElementById('pb'),go=document.getElementById('go');
+function w(t){log.textContent+=(log.textContent?'\n':'')+t;log.scrollTop=1e9;}
+go.addEventListener('click',async function(){var key=document.getElementById('k').value.trim(),files=[].slice.call(document.getElementById('f').files).filter(function(x){return /^(summary|geo|st-\d\d)\.json$/.test(x.name);});
+ log.textContent='';if(!key){w('Enter the upload key first.');return;}if(!files.length){w('Select the .json files first.');return;}
+ files.sort(function(a,b){return a.size-b.size;});go.disabled=true;var done=0,fail=0;
+ for(var i=0;i<files.length;i++){var x=files[i];
+  try{var r=await fetch('/api/vr-ingest?f='+encodeURIComponent(x.name),{method:'POST',headers:{'x-key':key,'Content-Type':'application/json'},body:await x.text()});var j=await r.json().catch(function(){return {};});
+   if(!r.ok){fail++;w('✗ '+x.name+' — '+(j.error||r.status));if(r.status===401){break;}}else{done++;w('✓ '+x.name+' ('+Math.round(x.size/1024)+' KB)');}}
+  catch(e){fail++;w('✗ '+x.name+' — '+e.message);}
+  pb.style.width=((i+1)/files.length*100)+'%';}
+ w('');w(done+' uploaded, '+fail+' failed.'+(done&&!fail?' All done — open /voter-register to check.':''));go.disabled=false;});
+</script></body></html>
